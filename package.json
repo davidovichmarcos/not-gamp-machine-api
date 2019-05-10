@@ -1,0 +1,22 @@
+{
+  "name": "not-gamp-machine-api",
+  "version": "0.0.1",
+  "description": "handfull endpoints",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chaucharian/not-gamp-machine-api.git"
+  },
+  "author": "AS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Chaucharian/not-gamp-machine-api/issues"
+  },
+  "homepage": "https://github.com/Chaucharian/not-gamp-machine-api#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
