@@ -8,9 +8,14 @@ app.listen(port, '0.0.0.0',() => console.log(`This is real weed API is now worki
 app.get('/set', (req, res) => {
     humedity = req.query.h;
     temperature = req.query.t;
+    res.end();
 });
 
-app.get('/data', res => {
+app.get('/data', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-    return res.status(200).json({ humedity, temperature });
+    res.status(200).json({ humedity, temperature });
+ });
+
+app.get('/', (req, res) => {
+   res.status(200).send('Welcome to a real triangulation system working with js and arduino');
 });
