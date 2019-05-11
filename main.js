@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port=process.env.PORT || 3000;
 let humedity = 0, temperature = 0;
 
 app.listen(port, '0.0.0.0',() => console.log(`This is real weed API is now working at ${port}!`));
