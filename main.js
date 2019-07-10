@@ -4,7 +4,7 @@ const port = process.env.PORT || 3000;
 const firebase = require("firebase-admin");
 const fs = require('fs');
 const path = require('path');
-const filePath = path.join('/home/admin/', 'firebaseAuth.json');
+const filePath = path.join(__dirname, 'firebaseAuth.json');
 let humedity = 0, temperature = 0;
 
 fs.readFile(filePath, (err, realData) => {
