@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Chaucharian/not-gamp-machine-api#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "firebase": "^6.2.4",
     "firebase-admin": "^8.2.0"
   }
 }
