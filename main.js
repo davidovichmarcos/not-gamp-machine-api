@@ -10,7 +10,7 @@ let humedity = 0, temperature = 0;
 fs.readFile(filePath, (err, realData) => {
     const data = JSON.parse(realData.toString());
     if (!err) {
-      console.log(data)
+    // console.log(data)
       firebase.initializeApp({
         credential: firebase.credential.cert(data),
         databaseURL: "https://not-gamp-machine.firebaseio.com"
@@ -34,12 +34,18 @@ function writeSensorData(temperature, humedity) {
 function readSensorRange(from, to){
   let chartData = [];
   return firebase.database().ref('sensordata/data').once('value').then(function(snapshot) {
-  /*  let filteredList = Object.keys(snapshot.val()).filter(timestamp => from <= timestamp && timestamp <= to);
-    for(let date of filteredList) {
-     chartData.push(snapshot.val()[String(date)]);
+   let chartMap = new Object(snapshot.val());
+   let result = Object.keys(chartMap).map(function(key) {
+    return [String(key), chartMap[key]];
+  });
+
+    for(let value of result) {
+      if(from <= value[1].timestamp && value[1].timestamp <= to) {
+      chartData.push(value[1]);
+      }
     }
-    return chartData;*/
-    console.log('snapshot',snapshot);
+    return chartData;
+
   });
 }
 
@@ -73,5 +79,3 @@ app.get('/data', (req, res) => {
 app.get('/', (req, res) => {
    res.status(200).send('Welcome to a real triangulation system working with js and arduino');
 });
-
-//SONIDOS DE SKATEE PARA AUDIO JORUNEry
